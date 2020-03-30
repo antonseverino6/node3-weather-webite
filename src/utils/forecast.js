@@ -11,10 +11,12 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             const temp = body.currently.temperature
             const precipProb = body.currently.precipProbability
-            callback(undefined, body.daily.data[0].summary + ' It is currently ' + temp + ' degrees out. There is a ' + precipProb + '% chance of rain')
+            const windSpeed = body.currently.windSpeed
+            callback(undefined, body.daily.data[0].summary + ' It is currently ' + temp + ' degrees out. There is a ' + precipProb + '% chance of rain. Wind speed is ' + windSpeed)
         }
     })
 
 }
 
 module.exports = forecast
+
